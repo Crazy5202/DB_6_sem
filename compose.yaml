@@ -1,0 +1,14 @@
+version: "1.0"
+services:
+  postgres:
+    container_name: "index_testing"
+    image: postgres:16.4
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_USER: ""
+      POSTGRES_PASSWORD: ""
+    volumes:
+      #- ./mapped:/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
